@@ -1,13 +1,24 @@
+@using AutoLotDal.Models
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
-</div>
-</body>
-</html>
+@helper ShowInventory(Inventory item)
+{
+ @item.Make<text>-</text>@item.Color<text>(</text>@item.PetName<text>)</text>   
+}
+
+@{
+    Func<dynamic, object> b = @<strong>@item</strong>;
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@foreach (var item in Model)
+{
+    @Html.DisplayFor(model=>item,"InventoryList")<br/>
+
+
+}
+
+
