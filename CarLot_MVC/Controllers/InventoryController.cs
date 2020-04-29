@@ -104,6 +104,8 @@ namespace CarLot_MVC.Controllers
             Inventory inventory = _repo.GetOne(id);
             if (inventory == null)
                 return HttpNotFound();
+            var ordersCount = inventory.Orders.Count;
+           
             return View(inventory);
         }
 
@@ -111,6 +113,13 @@ namespace CarLot_MVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete([Bind(Include = "Id,TimeStamp")] Inventory inventory)
         {
+            
+            var ordersCount= _repo.GetOne(inventory.Id).Orders.Count;
+     //       if (ordersCount > 0)
+       //     {
+         //       ModelState.AddModelError(string.Empty, $"Unable to delete the record. This records has {ordersCount} orders");
+           //     return View(inventory);
+          //  }
             try
             {
                 _repo.Delete(inventory);

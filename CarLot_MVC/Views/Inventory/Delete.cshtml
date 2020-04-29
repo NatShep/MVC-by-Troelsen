@@ -5,12 +5,21 @@
     
 }
 
+@Scripts.Render("~/bundles/jqueryval")
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(x=>x.Id)
     @Html.HiddenFor(x=>x.Timestamp)
+    <tr>
+        <td>@Html.DisplayFor(model=>model.Make)</td>
+        <td>@Html.DisplayFor(model=>model.Color)</td>
+        <td>@Html.DisplayFor(model=>model.PetName)</td>
+    </tr>
+   
     @Html.ValidationSummary(true,"",new {@class = "text-danger"})
+    
     <div class="form-actions no-color">
         <input type ="submit" value = "Delete" class = "btn btn-default"/>
         @Html.ActionLink("Back to List","Index")

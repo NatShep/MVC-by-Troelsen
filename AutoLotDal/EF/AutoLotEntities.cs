@@ -13,11 +13,11 @@ namespace AutoLotDal.EF
         public AutoLotEntities()
             : base("name=AutoLotConnection")
         {
-            //----------------to do for interseption
-           // DbInterception.Add(new ConsoleWriterInterceptor());
-           //---------------to do for DataBaseLogger
+       //----------------to do for interseption
+       // DbInterception.Add(new ConsoleWriterInterceptor());
+       //---------------to do for DataBaseLogger
        //    DatabaseLogger.StartLogging();
-        //   DbInterception.Add(DatabaseLogger);
+       //   DbInterception.Add(DatabaseLogger);
         
         //---------------to do for objectContext interseption
         var context = (this as IObjectContextAdapter).ObjectContext;

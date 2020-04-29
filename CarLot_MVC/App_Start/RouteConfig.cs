@@ -11,7 +11,7 @@ namespace CarLot_MVC
             routes.MapRoute(
                 "Default",
                 "{controller}/{action}/{id}",
-                new {controller = "Home", action = "Index", id = UrlParameter.Optional}
+                new {controller = "Inventory", action = "Index", id = UrlParameter.Optional}
             );
         }
     }
