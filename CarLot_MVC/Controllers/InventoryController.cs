@@ -115,11 +115,11 @@ namespace CarLot_MVC.Controllers
         {
             
             var ordersCount= _repo.GetOne(inventory.Id).Orders.Count;
-     //       if (ordersCount > 0)
-       //     {
-         //       ModelState.AddModelError(string.Empty, $"Unable to delete the record. This records has {ordersCount} orders");
-           //     return View(inventory);
-          //  }
+            if (ordersCount > 0)
+            {
+                ModelState.AddModelError(string.Empty, $"Unable to delete the record. This records has {ordersCount} orders");
+                return View(inventory);
+            }
             try
             {
                 _repo.Delete(inventory);
